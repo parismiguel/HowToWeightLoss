@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Category>
+
+@if (Model.Any())
+{
+    <ul>
+    @foreach (var category in Model)
+    {
+        <li><a href="/category/@Uri.EscapeDataString(category.Slug)">@category.Name</a> (@category.RecentPosts.Count())</li>
+    }
+    </ul>
+}

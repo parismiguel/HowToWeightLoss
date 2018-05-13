@@ -1,0 +1,76 @@
+﻿@using Website.Models
+@model Website.Models.CategoryViewModel
+@{
+    ViewBag.Title = $"Posts in the {Model.Category.Name} category";
+}
+
+<div>
+    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Back Home</a>
+</div>
+
+<h2>Posts in @Model.Category.Name</h2>
+
+@Html.DisplayFor(m => m.Blogs.Posts)
+
+@if (Model.Blogs.TotalPages > 1)
+{
+    if (Model.Blogs.PreviousPage != null)
+    {
+<a href="/category/@Model.Category.Slug/p/@Model.Blogs.PreviousPage">Prev</a>
+    }
+
+    for (int i = 1; i <= Model.Blogs.TotalPages; i++)
+    {
+        if (i == Model.Blogs.CurrentPage)
+        {
+
+<span class="page-number active">@i</span>
+        }
+        else
+        {
+<span class="page-number"><a href="/category/@Model.Category.Slug/p/@i">@i</a></span>
+        }
+
+    }
+
+    if (ViewBag.NextPage != null)
+    {
+<a href="/category/@Model.Category.Slug/p/@Model.Blogs.NextPage">Next</a>
+    }
+}
+
+@section SeoMeta {
+    <meta name="description" content="@Model.Category.Name category">
+    @if (Model.Blogs.CurrentPage > 1)
+    {
+    <meta name="url" content="@ViewBag.BaseUrl/category/@Model.Category.Slug/p/@Model.Blogs.CurrentPage">
+    <meta property="og:url" content="@ViewBag.BaseUrl/category/@Model.Category.Slug/p/@Model.Blogs.CurrentPage" />
+    }
+    else
+    {
+    <meta name="url" content="@ViewBag.BaseUrl/category/@Model.Category.Slug">
+    <meta property="og:url" content="@ViewBag.BaseUrl/category/@Model.Category.Slug" />
+    }
+
+    <meta property="og:title" content="@Model.Category.Name Category" />
+    <meta property="og:description" content="A list of blog posts categorised in @Model.Category.Name" />
+}
+@section HeadLinks {
+    <!-- Canonical -->
+    @if (Model.Blogs.CurrentPage > 1)
+    {
+    <link rel="canonical" href="@ViewBag.BaseUrl/category/@Model.Category.Slug/p/@Model.Blogs.CurrentPage">
+    }
+    else
+    {
+    <link rel="canonical" href="@ViewBag.BaseUrl/category/@Model.Category.Slug">
+    }
+    @if (Model.Blogs.PreviousPage != null)
+    {
+    <link rel="canonical" href="@ViewBag.BaseUrl/category/@Model.Category.Slug/p/@Model.Blogs.PreviousPage">
+    }
+    @if (Model.Blogs.NextPage != null)
+    {
+    <link rel="canonical" href="@ViewBag.BaseUrl/category/@Model.Category.Slug/p/@Model.Blogs.NextPage">
+    }
+}

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Tag>
+
+@{
+    var count = Model.Sum(x => x?.RecentPosts?.Count() ?? 0);
+
+}
+@if (count > 0)
+{
+    foreach (var tag in Model)
+    {
+        var per = decimal.Divide(tag?.RecentPosts?.Count() ?? 0, count);
+        var rems = 1.2m + per;
+
+        @: <a href="/tag/@Uri.EscapeDataString(tag.Slug)" style="font-size: @(rems)rem">@tag.Name</a>
+    }
+}

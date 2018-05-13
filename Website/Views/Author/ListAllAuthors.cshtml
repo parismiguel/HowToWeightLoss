@@ -1,0 +1,24 @@
+﻿@using Website.Models
+@model Website.Models.AuthorListViewModel
+
+@{
+    ViewBag.Title = "Authors";
+}
+
+<div>
+    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Back Home</a>
+</div>
+
+<h2>Authors</h2>
+
+@Html.DisplayFor(m => m.Authors)
+
+
+@section SeoMeta {
+    <meta name="description" content="Authors that post on my blog">
+    <meta name="url" content="@ViewBag.BaseUrl/authors">
+}
+
+@section HeadLinks {
+    <link rel="canonical" href="@ViewBag.BaseUrl/authors">
+}

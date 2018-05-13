@@ -1,0 +1,74 @@
+﻿@using Website.Models
+@model Website.Models.BlogListViewModel
+@{
+    ViewBag.Title = "Blog";
+}
+
+<h2>Posts</h2>
+
+@Html.DisplayFor(m => m.Posts)
+
+@if (Model.TotalPages > 1)
+{
+    if (Model.PreviousPage != null)
+    {
+        <a href="/p/@Model.PreviousPage">Prev</a>
+    }
+
+    for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+
+            <span class="page-number active">@i</span>
+        }
+        else
+        {
+            <span class="page-number"><a href="/p/@i">@i</a></span>
+        }
+
+    }
+
+    if (ViewBag.NextPage != null)
+    {
+        <a href="/p/@Model.NextPage">Next</a>
+    }
+}
+
+
+
+@section SeoMeta {
+    <meta name="description" content="Thoughts and opinions by me">
+    @if (Model.CurrentPage > 1)
+    {
+        <meta name="url" content="@ViewBag.BaseUrl/p/@Model.CurrentPage">
+        <meta property="og:url" content="@ViewBag.BaseUrl/p/@Model.CurrentPage" />
+    }
+    else
+    {
+        <meta name="url" content="@ViewBag.BaseUrl">
+        <meta property="og:url" content="@ViewBag.BaseUrl" />
+    }
+
+    <meta property="og:title" content="Blog posts" />
+    <meta property="og:description" content="A list of blog posts from my blog" />
+}
+
+@section HeadLinks {
+    @if (Model.CurrentPage > 1)
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl/p/@Model.CurrentPage">
+    }
+    else
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl">
+    }
+    @if (Model.PreviousPage != null)
+    {
+        <link rel="prev" href="@ViewBag.BaseUrl/p/@Model.PreviousPage">
+    }
+    @if (Model.NextPage != null)
+    {
+        <link rel="next" href="@ViewBag.BaseUrl/p/@Model.NextPage">
+    }
+}

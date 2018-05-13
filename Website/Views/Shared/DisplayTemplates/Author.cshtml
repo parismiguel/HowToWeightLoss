@@ -1,0 +1,14 @@
+﻿@model ButterCMS.Models.Author
+
+<!-- Blog Post Start -->
+<div class="col-md-3 blog-post">
+    <div class="post-image">
+        <img src="@Model.ProfileImage" alt="Profile image of @Model.FirstName @Model.LastName"/>
+    </div>
+    <div class="post-title">
+        <a href="/author/@Uri.EscapeDataString(Model.Slug)">
+            <h1>@Model.FirstName @Model.LastName</h1></a>
+    </div>
+    <p>@Model.Bio</p>
+</div>
+<!-- Blog Post End -->

@@ -1,0 +1,76 @@
+﻿@using Website.Models
+@model Website.Models.TagViewModel
+@{
+    ViewBag.Title = $"Posts in the {Model.Tag.Name} tag";
+}
+
+<div>
+    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Back Home</a>
+</div>
+
+<h2>Posts in @Model.Tag.Name</h2>
+
+@Html.DisplayFor(m => m.Blogs.Posts)
+
+@if (Model.Blogs.TotalPages > 1)
+{
+    if (Model.Blogs.PreviousPage != null)
+    {
+        <a href="/tag/@Model.Tag.Slug/p/@Model.Blogs.PreviousPage">Prev</a>
+    }
+
+    for (int i = 1; i <= Model.Blogs.TotalPages; i++)
+    {
+        if (i == Model.Blogs.CurrentPage)
+        {
+
+            <span class="page-number active">@i</span>
+        }
+        else
+        {
+            <span class="page-number"><a href="/tag/@Model.Tag.Slug/p/@i">@i</a></span>
+        }
+
+    }
+
+    if (ViewBag.NextPage != null)
+    {
+        <a href="/tag/@Model.Tag.Slug/p/@Model.Blogs.NextPage">Next</a>
+    }
+}
+
+@section SeoMeta {
+    <meta name="description" content="@Model.Tag.Name tag">
+    @if (Model.Blogs.CurrentPage > 1)
+    {
+        <meta name="url" content="@ViewBag.BaseUrl/tag/@Model.Tag.Slug/p/@Model.Blogs.CurrentPage">
+        <meta property="og:url" content="@ViewBag.BaseUrl/tag/@Model.Tag.Slug/p/@Model.Blogs.CurrentPage" />
+    }
+    else
+    {
+        <meta name="url" content="@ViewBag.BaseUrl/tag/@Model.Tag.Slug">
+        <meta property="og:url" content="@ViewBag.BaseUrl/tag/@Model.Tag.Slug" />
+    }
+
+    <meta property="og:title" content="@Model.Tag.Name Tag" />
+    <meta property="og:description" content="A list of blog posts tagged with @Model.Tag.Name" />
+}
+@section HeadLinks {
+    <!-- Canonical -->
+    @if (Model.Blogs.CurrentPage > 1)
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl/tag/@Model.Tag.Slug/p/@Model.Blogs.CurrentPage">
+    }
+    else
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl/tag/@Model.Tag.Slug">
+    }
+    @if (Model.Blogs.PreviousPage != null)
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl/tag/@Model.Tag.Slug/p/@Model.Blogs.PreviousPage">
+    }
+    @if (Model.Blogs.NextPage != null)
+    {
+        <link rel="canonical" href="@ViewBag.BaseUrl/tag/@Model.Tag.Slug/p/@Model.Blogs.NextPage">
+    }
+}
