@@ -18,7 +18,7 @@
     <meta name="copyright" content="Me">
     <meta name="robots" content="index,follow">
 
-    <title>@ViewBag.Title - My Blog</title>
+    <title>@ViewBag.Title - Como bajar de peso - Consejos y tips</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/images/favicon/favicon.ico">
@@ -32,6 +32,14 @@
 
     <!-- Google Web Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4369806819199419",
+            enable_page_level_ads: true
+        });
+    </script>
 
     @RenderSection("HeadLinks")
 
@@ -48,7 +56,7 @@
     </div>
     <!-- Preloader End -->
 
-    <a class="sr-only" href="#content">Skip to main content</a>
+    <a class="sr-only" href="#content">Saltarse al contenido principal</a>
 
     <div id="main">
         <div class="container">
@@ -59,14 +67,14 @@
                     <div class="about-fixed">
 
                         <div class="my-pic">
-                            @if (!string.IsNullOrEmpty((((Author) ViewBag.Author).ProfileImage)))
+                            @if (!string.IsNullOrEmpty((((Author)ViewBag.Author).ProfileImage)))
                             {
-                                <img src="@(((Author) ViewBag.Author).ProfileImage)" alt="">
+                                <img src="@(((Author)ViewBag.Author).ProfileImage)" alt="">
                             }
                             <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
                             <div id="menu" class="collapse">
                                 <ul class="menu-link">
-                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/">Inicio</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,7 +88,7 @@
 
                             <ul class="social-icon">
                                 <li><a href="@(((Author) ViewBag.Author).FacebookUrl)" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://twitter.com/@(((Author) ViewBag.Author).TwitterHandle.TrimStart('@'))" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://twitter.com/@(((Author)ViewBag.Author).TwitterHandle.TrimStart('@'))" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="@(((Author) ViewBag.Author).LinkedinUrl)" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                                 @*                                <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>*@
                             </ul>
@@ -96,7 +104,7 @@
 
                         <div class="tags">
                             <div class="white-spacing">
-                                <h3>Tags</h3>
+                                <h3>Etiquetas</h3>
                                 @Html.Partial("_TagCloud", (IEnumerable<Tag>)ViewBag.Tags)
                             </div>
                         </div>
@@ -108,7 +116,7 @@
                     <div class="col-md-12 page-body">
                         <div class="row">
                             <div class="sub-title">
-                                <h2>Ramblings &amp; Thoughts from a Software Developer</h2>
+                                <h2>Como bajar de peso - Consejos y tips</h2>
                             </div>
 
                             <a name="content"></a>
@@ -125,14 +133,14 @@
                     <div class="col-md-12 page-body margin-top-50 footer">
                         <footer>
                             <ul class="menu-link">
-                                <li><a href="/">Home</a></li>
+                                <li><a href="/">Inicio</a></li>
                             </ul>
 
-                            <p>© Copyright @DateTime.Now.Year Me. All rights reserved</p>
+                            <p>© Proyectos Innovadores EIRL @DateTime.Now.Year. Todos los derechos reservados</p>
 
                             <!-- UiPasta Credit Start -->
                             <div class="uipasta-credit">
-                                Design By <a href="http://www.uipasta.com" target="_blank">UiPasta</a> | Content powered by <a href="https://buttercms.com/" target="_blank">ButterCMS</a>
+                                Diseñado por <a href="http://www.uipasta.com" target="_blank">Proyectos Innovadores EIRL</a> | Contenido desarrollado por <a href="https://buttercms.com/" target="_blank">ButterCMS</a>
                             </div>
                             <!-- UiPasta Credit End -->
                         </footer>

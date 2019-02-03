@@ -2,26 +2,26 @@
 @model Website.Models.TagsListViewModel
 
 @{
-    ViewBag.Title = "Tags";
+    ViewBag.Title = "Etiquetas";
 }
 
 <div>
-    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Back Home</a>
+    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Inicio</a>
 </div>
 
-<h2>Tags</h2>
+<h2>Etiquetas</h2>
 
 <ul>
     @Html.DisplayFor(m => m.Tags)
 </ul>
 
 @section SeoMeta {
-    <meta name="description" content="Authors that post on my blog">
+    <meta name="description" content="Todas las etiquetas de mi Blog">
     <meta name="url" content="@ViewBag.BaseUrl/tags">
 
     <meta property="og:url" content="@ViewBag.BaseUrl/tags" />
     <meta property="og:title" content="Tags" />
-    <meta property="og:description" content="All tags used on my blog" />
+    <meta property="og:description" content="Todas las etiquetas de mi Blog" />
 }
 
 @section HeadLinks {

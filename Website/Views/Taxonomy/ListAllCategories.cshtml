@@ -2,27 +2,27 @@
 @model Website.Models.CategoriesListViewModel
 
 @{
-    ViewBag.Title = "Categories";
+    ViewBag.Title = "Categorías";
 }
 
 <div>
-    <a href="/" title="Go to Home Page"><i class="fas fa-arrow-left"></i> Back Home</a>
+    <a href="/" title="Ir a Inicio"><i class="fas fa-arrow-left"></i> Inicio</a>
 </div>
 
-<h2>Categories</h2>
+<h2>Categorías</h2>
 
 <ul>
     @Html.DisplayFor(m => m.Categories)
 </ul>
 
 @section SeoMeta {
-    <meta name="description" content="Authors that post on my blog">
+    <meta name="description" content="Todas las categorías de mi Blog">
     <meta name="url" content="@ViewBag.BaseUrl/categories">
 
 
     <meta property="og:url" content="@ViewBag.BaseUrl/categories" />
     <meta property="og:title" content="Categories" />
-    <meta property="og:description" content="All categories used on my blog" />
+    <meta property="og:description" content="Todas las categorías de mi Blog" />
 }
 
 @section HeadLinks {

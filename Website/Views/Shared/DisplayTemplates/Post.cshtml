@@ -25,9 +25,9 @@
         </a>
     </div>
     <div class="post-info">
-        <span>@(Model.Published.HasValue ? $"{Model.Published.Value:D} / by " : "By ") <a href="/author/@Uri.EscapeDataString(Model.Author.Slug)" target="_blank">@Model.Author.FirstName @Model.Author.LastName</a></span>
+        <span>@(Model.Published.HasValue ? $"{Model.Published.Value:D} / por " : "Por ") <a href="/author/@Uri.EscapeDataString(Model.Author.Slug)" target="_blank">@Model.Author.FirstName @Model.Author.LastName</a></span>
     </div>
     <p>@Model.Summary</p>
-    <a href="/blog/@Uri.EscapeDataString(Model.Slug)" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+    <a href="/blog/@Uri.EscapeDataString(Model.Slug)" class="button button-style button-anim fa fa-long-arrow-right"><span>Ver más</span></a>
 </div>
 <!-- Blog Post End -->

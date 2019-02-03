@@ -42,12 +42,14 @@ namespace Website.Controllers
                 entry.AbsoluteExpiration = DateTimeOffset.Now.AddDays(1);
                 return (Author)entry.Value;
             });
+
             ViewBag.Categories = Cache.GetOrCreate("categories|all", entry =>
             {
                 entry.Value = Client.ListCategories(true).Where(x => x.RecentPosts.Any()).ToList();
                 entry.AbsoluteExpiration = DateTimeOffset.Now.AddDays(1);
                 return (List<Category>)entry.Value;
             });
+
             ViewBag.Tags = Cache.GetOrCreate("tags|all", entry =>
             {
                 entry.Value = Client.ListTags(true).Where(x => x.RecentPosts.Any()).ToList();

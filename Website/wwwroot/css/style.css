@@ -72,7 +72,8 @@ html {
 
 a {
     text-decoration: none !important;
-    color: #1abc9c;
+    /*color: #1abc9c;*/
+    color: darkorange;
 }
 
 a:hover,
@@ -278,7 +279,8 @@ button {
     top: 0px;
     font-size: 20px;
     color: #fff;
-    background: #1abc9c;
+    /*background: #1abc9c;*/
+    background: darkorange;
     padding: 12px;
 }
 
